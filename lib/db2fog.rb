@@ -146,7 +146,7 @@ class DB2Fog
       cmd = ''
       cmd += " -U #{@credentials[:username]} " unless @credentials[:username].nil?
       cmd += " -h '#{@credentials[:host]}'"    unless @credentials[:host].nil?
-      cmd += " -w"                             if     pg_version >= 9
+      cmd += " -W '#{@credentials[:password]}' " if @credentials[:password] 
       cmd += " #{@credentials[:database]}"
     end
 
